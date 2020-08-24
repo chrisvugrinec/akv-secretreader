@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Azure Pod Identity KV reader demo
+name: akv-reader
+version: 0.1.0

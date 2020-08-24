@@ -1,0 +1,30 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 2
+image:
+  repository: cvugrinec/akv-secretreader
+  tag: 4
+  pullSecret: regsecret
+  pullPolicy: Always
+  # for local development against Minikube registry
+  #pullPolicy: Never    
+service:
+  name: secret-service
+  type: ClusterIP
+  externalPort: 5000
+  internalPort: 5000
+environment:
+  MSID: [ FIND THE ID of your MANAGEDIDENTITY ]
+  KEY_VAULT_NAME: [ NAME OF YOUR KEYVAULT ]
+  PODID: [ NAME OF YOUR MANAGED ID ]
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
